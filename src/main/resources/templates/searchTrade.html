@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>取引照会</title>
+</head>
+
+<body>
+	<h2>取引照会</h2>
+	<form th:action="@{/searchTrade}" th:object="${dto}" method="post">
+		<label>オーダーID: <input type="text" th:field="*{orderID}" required /></label><br />
+		<button type="submit">照会実行</button>
+	</form>
+	<a th:href="@{/}">メニューへ戻る</a>
+</body>
+
+</html>

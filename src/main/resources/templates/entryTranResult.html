@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>取引登録結果</title>
+</head>
+<style>
+	.info-grid {
+		display: grid;
+		grid-template-columns: 80px 10px auto;
+		/* ラベルの幅、コロンの幅、値の幅 */
+		row-gap: 8px;
+		/* 行の間隔 */
+	}
+</style>
+
+<body>
+	<h2>取引登録結果</h2>
+	<h3>取引登録に成功しました。</h3>
+	<div class="info-grid">
+		<div>オーダーID</div>
+		<div>:</div>
+		<div th:text="${dto.orderID}"></div>
+		<div>会員ID</div>
+		<div>:</div>
+		<div th:text="${dto.memberID}"></div>
+		<div>会員名</div>
+		<div>:</div>
+		<div th:text="${dto.memberName}"></div>
+		<div>金額</div>
+		<div>:</div>
+		<div th:text="${dto.amount}"></div>
+	</div>
+	<a th:href="@{/}">メニューへ戻る</a>
+	<hr />
+</body>
+
+</html>

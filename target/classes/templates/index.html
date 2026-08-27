@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>GMO-PG 決済管理メニュー</title>
+</head>
+
+<body>
+	<h1>クレジットカード決済管理メニュー (仮実運用・3DSなし)</h1>
+
+	<h2>1. 仮売上</h2>
+	<ul>
+		<li><a th:href="@{/entryTran}">【取引登録】取引情報を登録</a></li>
+		<li><a th:href="@{/execTran}">【決済実行】仮売上</a></li>
+	</ul>
+
+	<h2>2. 売上の確定・変更</h2>
+	<ul>
+		<li><a th:href="@{/alterTran}">【実売上】仮売上の確定</a></li>
+		<li><a th:href="@{/cancel}">【取　消】 取引のキャンセル</a></li>
+	</ul>
+
+	<h2>3. 確認・サポート</h2>
+	<ul>
+		<li><a th:href="@{/searchTrade}">【取引照会】 決済結果・ステータスの確認</a></li>
+	</ul>
+</body>
+
+</html>

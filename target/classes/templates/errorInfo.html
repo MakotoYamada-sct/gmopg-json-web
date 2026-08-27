@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>エラーデータ</title>
+</head>
+
+<body>
+	<h3>エラーが発生しました。エラー内容を確認してください。</h3>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>エラーコード</th>
+				<th>エラー詳細</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="err : ${err}">
+				<td th:text="${err.errCode}"></td>
+				<td th:text="${err.errInfo}"></td>
+			</tr>
+		</tbody>
+	</table>
+	<a th:href="@{/}">メニューへ戻る</a>
+	<hr />
+</body>
+
+</html>

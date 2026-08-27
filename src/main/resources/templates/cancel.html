@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>決済取消</title>
+</head>
+
+<body>
+	<h2>決済取消</h2>
+
+	<form th:action="@{/cancel}" th:object="${dto}" method="post">
+		<table border="1">
+			<thead>
+				<tr>
+					<th>選択</th>
+					<th>オーダーID</th>
+					<th>会員ID</th>
+					<th>金額</th>
+					<th>処理日時</th>
+					<th>取引状態</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="dto : ${dto}">
+					<!-- ラジオボタン: name属性を統一し、valueにIDをセット -->
+					<td><input type="radio" name="selectOrderID" th:value="${dto.orderID}" required></td>
+					<td th:text="${dto.orderID}"></td>
+					<td th:text="${dto.memberID}"></td>
+					<td th:text="${dto.amount}"></td>
+					<td th:text="${dto.processDate}"></td>
+					<td th:text="${dto.status}"></td>
+				</tr>
+			</tbody>
+		</table>
+		<br>
+		<button type="submit">決済取消</button>
+	</form>
+	</form>
+	<a th:href="@{/}">メニューへ戻る</a>
+	<hr />
+</body>
+
+</html>
