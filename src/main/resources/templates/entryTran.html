@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
+	<meta charset="UTF-8">
 	<title>取引登録</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-
 <body>
-	<h2>取引登録</h2>
-	<form th:action="@{/entryTran}" th:object="${dto}" method="post">
-		<label>会員ID: <input type="text" th:field="*{memberID}" required placeholder="サイト管理画面で登録した会員ID" /></label><br />
-		<label>金額: <input type="number" th:field="*{amount}" required /></label><br />
-		<button type="submit">取引登録</button>
-	</form>
-	<a th:href="@{/}">メニューへ戻る</a>
+	<div class="container">
+		<h2>取引登録</h2>
+		<form th:action="@{/entryTran}" th:object="${dto}" method="post">
+			<div class="form-group">
+				<label for="memberID">会員ID</label>
+				<input type="text" id="memberID" th:field="*{memberID}" required placeholder="サイト管理画面で登録した会員ID" />
+			</div>
+			<div class="form-group">
+				<label for="amount">金額</label>
+				<input type="number" id="amount" th:field="*{amount}" required />
+			</div>
+			<button type="submit">取引登録</button>
+		</form>
+		<a th:href="@{/}" class="nav-link">← メニューへ戻る</a>
+	</div>
 </body>
-
 </html>

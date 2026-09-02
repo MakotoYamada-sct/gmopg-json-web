@@ -2,42 +2,49 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<title>決済取消</title>
+	<meta charset="UTF-8">
+	<title>取引取消</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
 <body>
-	<h2>決済取消</h2>
-
-	<form th:action="@{/cancel}" th:object="${dto}" method="post">
-		<table border="1">
-			<thead>
-				<tr>
-					<th>選択</th>
-					<th>オーダーID</th>
-					<th>会員ID</th>
-					<th>金額</th>
-					<th>処理日時</th>
-					<th>取引状態</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="dto : ${dto}">
-					<!-- ラジオボタン: name属性を統一し、valueにIDをセット -->
-					<td><input type="radio" name="selectOrderID" th:value="${dto.orderID}" required></td>
-					<td th:text="${dto.orderID}"></td>
-					<td th:text="${dto.memberID}"></td>
-					<td th:text="${dto.amount}"></td>
-					<td th:text="${dto.processDate}"></td>
-					<td th:text="${dto.status}"></td>
-				</tr>
-			</tbody>
-		</table>
-		<br>
-		<button type="submit">決済取消</button>
-	</form>
-	</form>
-	<a th:href="@{/}">メニューへ戻る</a>
-	<hr />
+	<div class="container">
+		<h2>取引取消</h2>
+		<form th:action="@{/cancel}" th:object="${dto}" method="post">
+			<table>
+				<thead>
+					<tr>
+						<th>選択</th>
+						<th>オーダーID</th>
+						<th>会員ID</th>
+						<th>金額</th>
+						<th>処理日時</th>
+						<th>取引状態</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- 1件以上ある場合、一覧表示 -->
+					<tr th:each="dto : ${dto}" th:if="${#lists.size(dto) > 0}">
+						<td><input type="radio" name="selectOrderID" th:value="${dto.orderID}" required></td>
+						<td th:text="${dto.orderID}"></td>
+						<td th:text="${dto.memberID}"></td>
+						<td th:text="${dto.amount}"></td>
+						<td th:text="${dto.processDate}"></td>
+						<td th:text="${dto.status}"></td>
+					</tr>
+					<!-- 0件の場合のメッセージ表示 -->
+					<tr th:if="${#lists.isEmpty(dto)}">
+						<td colspan="4" style="text-align: center; color: #64748b; padding: 20px;">
+							対象の取引データが存在しません。
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<!-- dtoがnullまたは空リストの場合に disabled 属性を付与 -->
+			<button type="submit" th:disabled="${#lists.isEmpty(dto)}">取引取消</button>
+		</form>
+		<a th:href="@{/}" class="nav-link">← メニューへ戻る</a>
+	</div>
 </body>
 
 </html>

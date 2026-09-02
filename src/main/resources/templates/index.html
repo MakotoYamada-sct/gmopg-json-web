@@ -4,27 +4,52 @@
 <head>
 	<meta charset="UTF-8">
 	<title>GMO-PG 決済管理メニュー</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
 <body>
-	<h1>クレジットカード決済管理メニュー (仮実運用・3DSなし)</h1>
+	<div class="container">
+		<h2>GMO-PG 決済管理メニュー</h2>
+		<div class="sub-header">クレジットカード決済管理（仮実運用・3DSなし）</div>
 
-	<h2>1. 仮売上</h2>
-	<ul>
-		<li><a th:href="@{/entryTran}">【取引登録】取引情報を登録</a></li>
-		<li><a th:href="@{/execTran}">【決済実行】仮売上</a></li>
-	</ul>
+		<div class="menu-section">
+			<h3>1. 仮売上</h3>
+			<div class="menu-grid">
+				<a th:href="@{/entryTran}" class="menu-card">
+					【取引登録】<br>
+					<span style="font-size: 0.85rem; font-weight: normal; color: #64748b;">取引情報を登録</span>
+				</a>
+				<a th:href="@{/execTran}" class="menu-card">
+					【決済実行】<br>
+					<span style="font-size: 0.85rem; font-weight: normal; color: #64748b;">取引情報を仮売上</span>
+				</a>
+			</div>
+		</div>
 
-	<h2>2. 売上の確定・変更</h2>
-	<ul>
-		<li><a th:href="@{/alterTran}">【実売上】仮売上の確定</a></li>
-		<li><a th:href="@{/cancel}">【取　消】 取引のキャンセル</a></li>
-	</ul>
+		<div class="menu-section">
+			<h3>2. 売上の確定・取消</h3>
+			<div class="menu-grid">
+				<a th:href="@{/alterTran}" class="menu-card">
+					【決済確定】<br>
+					<span style="font-size: 0.85rem; font-weight: normal; color: #64748b;">仮売上の確定</span>
+				</a>
+				<a th:href="@{/cancel}" class="menu-card">
+					【取引取消】<br>
+					<span style="font-size: 0.85rem; font-weight: normal; color: #64748b;">取引のキャンセル</span>
+				</a>
+			</div>
+		</div>
 
-	<h2>3. 確認・サポート</h2>
-	<ul>
-		<li><a th:href="@{/searchTrade}">【取引照会】 決済結果・ステータスの確認</a></li>
-	</ul>
+		<div class="menu-section">
+			<h3>3. 取引状態確認</h3>
+			<div class="menu-grid">
+				<a th:href="@{/searchTrade}" class="menu-card">
+					【取引照会】<br>
+					<span style="font-size: 0.85rem; font-weight: normal; color: #64748b;">決済結果・ステータスの確認</span>
+				</a>
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>

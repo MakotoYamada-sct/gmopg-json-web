@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
+	<meta charset="UTF-8">
 	<title>エラーデータ</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-
 <body>
-	<h3>エラーが発生しました。</h3>
-	<a th:href="@{/}">メニューへ戻る</a>
-	<hr />
+	<div class="container">
+		<h2>エラー</h2>
+		<div class="message-error">エラーが発生しました。</div>
+		<a th:href="@{/}" class="nav-link">← メニューへ戻る</a>
+	</div>
 </body>
-
 </html>

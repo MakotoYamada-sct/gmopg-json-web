@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
+	<meta charset="UTF-8">
 	<title>エラーデータ</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
-
 <body>
-	<h3>エラーが発生しました。エラー内容を確認してください。</h3>
-	<table border="1">
-		<thead>
-			<tr>
-				<th>エラーコード</th>
-				<th>エラー詳細</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="err : ${err}">
-				<td th:text="${err.errCode}"></td>
-				<td th:text="${err.errInfo}"></td>
-			</tr>
-		</tbody>
-	</table>
-	<a th:href="@{/}">メニューへ戻る</a>
-	<hr />
+	<div class="container">
+		<h2>エラー詳細</h2>
+		<div class="message-error">エラーが発生しました。エラー内容を確認してください。</div>
+		<table>
+			<thead>
+				<tr>
+					<th>エラーコード</th>
+					<th>エラー詳細</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="err : ${err}">
+					<td th:text="${err.errCode}"></td>
+					<td th:text="${err.errInfo}"></td>
+				</tr>
+			</tbody>
+		</table>
+		<a th:href="@{/}" class="nav-link">← メニューへ戻る</a>
+	</div>
 </body>
-
 </html>

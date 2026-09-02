@@ -2,16 +2,23 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
+	<meta charset="UTF-8">
 	<title>取引照会</title>
+	<link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
 <body>
-	<h2>取引照会</h2>
-	<form th:action="@{/searchTrade}" th:object="${dto}" method="post">
-		<label>オーダーID: <input type="text" th:field="*{orderID}" required /></label><br />
-		<button type="submit">照会実行</button>
-	</form>
-	<a th:href="@{/}">メニューへ戻る</a>
+	<div class="container">
+		<h2>取引照会</h2>
+		<form th:action="@{/searchTrade}" th:object="${dto}" method="post">
+			<div class="form-group">
+				<label for="orderID">オーダーID</label>
+				<input type="text" id="orderID" th:field="*{orderID}" required placeholder="照会するオーダーIDを入力" />
+			</div>
+			<button type="submit">照会実行</button>
+		</form>
+		<a th:href="@{/}" class="nav-link">← メニューへ戻る</a>
+	</div>
 </body>
 
 </html>
