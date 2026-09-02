@@ -28,6 +28,33 @@ npm install [https://github.com/MakotoYamada-sct/gmopg-json-web.git](https://git
 yarn add [https://github.com/MakotoYamada-sct/gmopg-json-web.git](https://github.com/MakotoYamada-sct/gmopg-json-web.git)
 ```
 
+application.propertiesの作成
+```text
+spring.application.name=gmopg-json-web
+server.port=8080
+
+# GMO-PG API Configuration (Test Environment)
+gmo.api.url=https://pt01.mul-pay.jp/payment
+gmo.api.pass=your_api_pass
+gmo.site.id=your_site_id
+gmo.site.pass=your_site_pass
+gmo.shop.id=your_shop_id
+gmo.shop.pass=your_shop_pass
+gmo.shop.order.prefix=ORDER
+gmo.h2.console.path=http://localhost:8080/h2-console
+
+# H2データベースの接続設定（組み込みモード：アプリ起動時に自動で生成・起動）
+spring.datasource.url=jdbc:h2:tcp://localhost/~/gmopg-json-web;AUTO_SERVER=TRUE
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+# spring.datasource.generate-unique-name=false
+
+# H2 Console（ブラウザからDBの中身を確認するツール）を有効化
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2-console
+```
+
 H2Databaseのインストールとテーブル作成
 ```SQL:テーブル作成
 CREATE TABLE ENTRYTRAN (
