@@ -29,6 +29,7 @@ yarn add [https://github.com/MakotoYamada-sct/gmopg-json-web.git](https://github
 ```
 
 application.propertiesの作成
+src/main/resources/application.properties
 ```text
 spring.application.name=gmopg-json-web
 server.port=8080
