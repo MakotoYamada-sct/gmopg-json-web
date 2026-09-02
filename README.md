@@ -1,6 +1,6 @@
 # gmopg-json-web
 
-`gmopg-json-web` は、GMOペイメントゲートウェイ（GMO-PG）のJSON API（OpenAPI）を利用した決済処理・Web連携を簡単に実行するためのWebアプリケーションです。
+`gmopg-json-web` は、GMOペイメントゲートウェイ（GMO-PG）のJSON APIを利用した決済処理・Web連携を簡単に実行するためのWebアプリケーションです。
 
 ---
 
